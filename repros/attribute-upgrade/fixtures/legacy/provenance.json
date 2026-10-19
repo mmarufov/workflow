@@ -1,0 +1,47 @@
+{
+  "capturedWithRevision": "a04ecaa6475ab729e8d0a445b00bef1490969658",
+  "captureWorld": "Postgres",
+  "historySha256": "2cc1b1bc27643b8757790a0be86cb504291c54a6cc1fb258f3d637a98c19de49",
+  "workflowSha256": "7ef6bd7c345a29573270e5ce25ccdec1ff2261ff8c4d41a604fe988794e8619d",
+  "fixture": "Unmodified saved history; each replay uses a separate in-memory World.",
+  "savedDecision": "prepared",
+  "capture": {
+    "description": "The real old SDK and Postgres World produced these events while brief test locks staged cancellation before the attribute write. No events or results were edited.",
+    "queueConcurrency": 1,
+    "workflowLogOrderDraws": "default (enabled)",
+    "workflowVm": "node",
+    "nodeVersion": "24.11.0",
+    "postgresVersion": "17.10",
+    "runTableLockHeldMs": 16.345541999999995,
+    "lockMode": "SHARE",
+    "blockedQuery": [
+      {
+        "pid": 49120,
+        "query": "update \"workflow\".\"workflow_runs\" set \"attributes\" = jsonb_set(COALESCE(\"workflow\".\"workflow_runs\".\"attributes\", '{}'::jsonb), ARRAY[$1]::text[], to_jsonb($2::text), true), \"updated_at\" = $3 where (\"workflow\".\"workflow_runs\".\"id\" = $4 and (SELECT COUNT(*) FROM jsonb_object_keys(jsonb_set(COALESCE(\"workflow\".\"workflow_runs\".\"attributes\", '{}'::jsonb), ARRAY[$5]::text[], to_jsonb($6::text), true))) <= $7) returning \"id\", \"output\", \"output_cbor\", \"deployment_id\", \"status\", \"name\", \"spec_version\", \"execution_context\", \"execution_context_cbor\", \"input\", \"input_cbor\", \"error\", \"error_cbor\", \"error_code\", \"attributes\", \"encryption_public_key\", \"dynamic_workflow_code_cbor\", \"created_at\", \"updated_at\", \"completed_at\", \"started_at\", \"expired_at\"",
+        "wait_event_type": "Lock",
+        "wait_event": "relation",
+        "mode": "RowExclusiveLock"
+      }
+    ],
+    "timestamps": "Stored by a world-postgres build from before #4757, which saved local time without a time zone, so createdAt values are offset by the capture machine's UTC offset (-07:00). The offset is uniform and does not change event order or spacing.",
+    "queueConcurrencySource": "Recorded in the capture health response.",
+    "workflowLogOrderDrawsSource": "Default replay setting used by the capture; not stored in the run executionContext.",
+    "lockedTables": ["workflow.workflow_hooks", "workflow.workflow_runs"],
+    "registrationWait": [
+      {
+        "pid": 49120,
+        "query": "delete from \"workflow\".\"workflow_hooks\" where (\"workflow\".\"workflow_hooks\".\"token\" = $1 and exists (select \"id\" from \"workflow\".\"workflow_runs\" where (\"workflow\".\"workflow_runs\".\"id\" = \"workflow\".\"workflow_hooks\".\"run_id\" and \"workflow\".\"workflow_runs\".\"status\" in ($2, $3, $4))) and (\"workflow\".\"workflow_hooks\".\"token_retention_until\" is null or \"workflow\".\"workflow_hooks\".\"token_retention_until\" <= now()))",
+        "wait_event_type": "Lock",
+        "wait_event": "relation",
+        "mode": "RowExclusiveLock"
+      }
+    ],
+    "procedureIncluded": false
+  },
+  "sourceDumpSha256": "a192cdb75ea0aa265aa8ef7a5241cd95405290e03e9dab17167553ad0af7b68f",
+  "runId": "wrun_01M4YQ5T772WK1WC4RD6WYFXGB",
+  "capturedCoreVersion": "5.2.1",
+  "capturedWorldRevision": "a04ecaa6475ab729e8d0a445b00bef1490969658",
+  "sourceCaptureReport": "postgres-serial-seed.json",
+  "sourceCaptureReportSha256": "9f62fc3e490cadc1949044b1f38aadbbede39a7c2b6b30ef57b06bf19e72bdaf"
+}

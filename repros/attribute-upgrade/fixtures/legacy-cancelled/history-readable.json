@@ -1,0 +1,90 @@
+{
+  "sourceHistorySha256": "2fecef2c5c757a3f7bcad4c1402c98deb387e1aff7a7d91a67841661b77eec53",
+  "note": "Decoded inspection view. The replay runner reads the unchanged history.bin.",
+  "runId": "wrun_01M4YQ4M0MY362BNWG9WNN6B9E",
+  "executionContext": {
+    "traceCarrier": {},
+    "workflowCoreVersion": "5.2.1",
+    "nodeVersion": "24.11.0",
+    "features": {
+      "encryption": false
+    },
+    "hookResumeInputVersion": 1,
+    "workflowVm": "node"
+  },
+  "events": [
+    {
+      "eventId": "evnt_00000000000000000000000001",
+      "eventType": "run_created",
+      "createdAt": "2026-10-14T19:44:24.213Z",
+      "input": [
+        "pg-contention-1792032264202-0"
+      ]
+    },
+    {
+      "eventId": "evnt_00000000000000000000000002",
+      "eventType": "run_started",
+      "createdAt": "2026-10-14T19:44:24.218Z"
+    },
+    {
+      "eventId": "evnt_00000000000000000000000003",
+      "eventType": "hook_created",
+      "createdAt": "2026-10-14T19:44:24.219Z",
+      "correlationId": "hook_01M4YQ4M0M3Z69MFT1M4YX5RP5",
+      "token": "pg-contention-1792032264202-0:cancel"
+    },
+    {
+      "eventId": "evnt_00000000000000000000000004",
+      "eventType": "hook_received",
+      "createdAt": "2026-10-14T19:44:24.233Z",
+      "correlationId": "hook_01M4YQ4M0M3Z69MFT1M4YX5RP5",
+      "token": "pg-contention-1792032264202-0:cancel"
+    },
+    {
+      "eventId": "evnt_00000000000000000000000005",
+      "eventType": "attr_set",
+      "createdAt": "2026-10-14T19:44:24.242Z",
+      "correlationId": "attr_01M4YQ4M0M3Z69MFT1M4YX5RP6",
+      "changes": [
+        {
+          "key": "phase",
+          "value": "preparing"
+        }
+      ]
+    },
+    {
+      "eventId": "evnt_00000000000000000000000006",
+      "eventType": "step_created",
+      "createdAt": "2026-10-14T19:44:24.244Z",
+      "correlationId": "step_01M4YQ4M0M3Z69MFT1M4YX5RP7",
+      "stepName": "step//./workflows/race//recordDecision",
+      "input": {
+        "args": [
+          "cancelled"
+        ]
+      }
+    },
+    {
+      "eventId": "evnt_00000000000000000000000007",
+      "eventType": "step_started",
+      "createdAt": "2026-10-14T19:44:24.244Z",
+      "correlationId": "step_01M4YQ4M0M3Z69MFT1M4YX5RP7",
+      "stepName": "step//./workflows/race//recordDecision"
+    },
+    {
+      "eventId": "evnt_00000000000000000000000008",
+      "eventType": "step_completed",
+      "createdAt": "2026-10-14T19:44:24.249Z",
+      "correlationId": "step_01M4YQ4M0M3Z69MFT1M4YX5RP7",
+      "stepName": "step//./workflows/race//recordDecision",
+      "result": "cancelled"
+    },
+    {
+      "eventId": "evnt_00000000000000000000000009",
+      "eventType": "hook_created",
+      "createdAt": "2026-10-14T19:44:24.250Z",
+      "correlationId": "hook_01M4YQ4M0M3Z69MFT1M4YX5RP8",
+      "token": "pg-contention-1792032264202-0:finish"
+    }
+  ]
+}

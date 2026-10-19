@@ -1,0 +1,21 @@
+{
+  "capturedWithRevision": "7882c81480b99241090f5c316250c8203c1c2ba1",
+  "captureWorld": "simulator",
+  "historySha256": "3358cb131c456d73c16b47aeb778b77ef040b7c8460050b9f15eb651f3e37acd",
+  "workflowSha256": "2f5a332a484246a019b955cfc15a695f1580a9809fcaf86d59c7341a76e5117b",
+  "fixture": "Unmodified saved history; each replay uses a separate in-memory World.",
+  "runId": "wrun_01HK153X00000000000105JM0S",
+  "capturedCoreVersion": "5.2.2",
+  "savedDecision": "cancelled",
+  "capture": {
+    "description": "Newer simulator control. Its workflow omits the getConflict() registration check used by the two Postgres captures.",
+    "workflowVm": "node",
+    "nodeVersion": "24.11.0",
+    "workflowLogOrderDraws": "default (enabled)",
+    "queueConcurrency": null,
+    "postgresVersion": null,
+    "world": "In-memory simulator; no Postgres server or queue workers.",
+    "virtualClockStart": "2024-01-01T00:00:00.000Z",
+    "timestamps": "Virtual-clock timestamps, not the capture date."
+  }
+}
